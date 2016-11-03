@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+ body {
+ 	font-family:'Pacifico', cursive;
+ 	background-image: url("http://www.araspot.com/wp-content/uploads/2015/08/mean-girls-wallpaper-desktop-photos-g1l3y8g234.jpg");
+ 	   background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+ .container {
+ 	height: 330px;
+ 	width: 1000px;
+ 	position: absolute;
+ 	top:50%;
+ 	left:50%;
+ 	transform: translateX(-50%) translateY(-50%);
+ 	background: rgba(255, 255, 255, 0.5);
+ 	padding: 20px;
+ 	border: 1px solid #fff;
+ 	box-shadow: : 0 0 8px 3px #fff;
+
+}
+.gameTitle {
+	padding-top: 20px;
+	text-align: center;
+	font-size:36px;
+	
+	color:#000;
+ }
+
+ .question {
+ 	padding: 20px;
+ 	font-size:22px;
+ 	border-radius: 20px;
+ 	margin: 10px 0 10px 0;
+ 	color: #f6f6f6;
+ }
+
+ .option{
+ 	width: 470px;
+ 	display: inline-block;
+ 	padding: 10px 0 10px 15px;
+ 	vertical-align: :middle;
+ 	background:rgba(255, 255, 255, 0.5);
+ 	margin: 10px 0 10px 10px;
+ 	color: #000000;
+ 	border-radius: :20px;
+
+ }
+
+ .option:hover{
+ 	background: gray;
+ 	color: #f6f6f6;
+
+ }
+ .next-btn{
+ 	border:none;
+ 	outline:none;
+ 	background:rgba(255, 25, 255, 0.5);
+ 	width:100px;
+ 	height: 35px;
+ 	border-radius: 20px;
+ 	cursor: :pointer;
+ 	float: right;
+ 	margin: 10px;
+ }
+
+ .next-btn:hover {
+ 	background:#08038C;
+ 	color: #f6f6f6;
+ }
+
+.result{
+	height:100px;
+	text-align: center;
+	font-size:75px;
+}
+
+.option input:checked .option{
+
+	background: #08038C;
+	color:#000;
+}
+
+}
