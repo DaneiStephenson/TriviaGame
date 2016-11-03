@@ -48,7 +48,7 @@ var questions = [{
 var images = ["assets/images/giphy.gif", "assets/giphyPretty.gif", "assets/images/giphyJBR.gif", "assets/images/giphyTS.gif", "assets/images/giphyGC.gif", "assets/images/giphyKB.gif"];
 
 var count = 0;
-
+var timer;
 var stopwatch;
 var currentQuestion = 0;
 var score= 0;
@@ -63,6 +63,33 @@ var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
 
+/*
+This function will let the finish button display score and start over 
+function startover (){
+
+
+
+$(".finish").click(function(){
+	$(".gameTitle").show();
+	$(".totalResults").show();
+	$(".container").hide();
+	$(".doOverDiv").hide();
+	
+$(".container-result").hide();
+});
+
+$(".gameTitle").hide();
+	$(".container").hide();
+	$(".doOverDiv").hide();
+	$(".totalResults").show();
+
+
+*/
+
+
+
+
+
 
 function startover (){
 
@@ -70,16 +97,17 @@ function startover (){
 
 $(".finish").click(function(){
 	$(".gameTitle").show();
+	$(".totalResults").show();
 	$(".container").hide();
 	$(".doOverDiv").hide();
-	$(".totalResults").show();
+	
 $(".container-result").hide();
 });
 
 $(".gameTitle").hide();
 	$(".container").hide();
 	$(".doOverDiv").hide();
-	$(".totalResults").hide();
+	$(".totalResults").show();
 
 
 
@@ -107,6 +135,7 @@ $(".start").click(function(){
 	$(".container").show();
 	$(".doOverDiv").hide();
 	$(".totalResults").hide();
+	starttimer();
 
 });
 $(".container").hide();
@@ -116,15 +145,6 @@ $(".totalResults").hide();
 
 
 
-
-
-function loadNextQuestion () {
-
-	var selectedOption = document.querySelector['input[type=radio]: checked'];
-
-function stoptimer() {
-    clearInterval(timer);
-}
 // Function to start timer
 function starttimer() {
     timer = setInterval(timer, 1000);
@@ -138,20 +158,31 @@ function timer() {
     // Updates timer
     $('.timer').html(t);
     // Reset and updates question when timer hits 0
-    if (t === 0) {
+    if (t == 0) {
         console.log("unanswered");
         t=10;
         $('.timer').html(t);
-        x++ // increment to display next question
-        questionupdater(); // runs function to display next question
-    }
+        loadNextQuestion();
+        }
 };
+
+
+function loadNextQuestion () {
+
+	var selectedOption = document.querySelector['input[type=radio]: checked'];
+/* for bonus
+function stoptimer() {
+    clearInterval(timer);
+}
+*/
+
 
 
 
 	var answer = ("selectedOption").value;
 	if(questions.answer == answer){
-		score +=  10;
+		score +=  1;
+
 		
 
 	}
@@ -177,11 +208,11 @@ loadQuestion(currentQuestion);
 
 
 
-
+/*
 window.onload = function(){
    $('#nextButton').on('click', stopwatch.start);
  };   
-
+*/
 /*
 
 var stopwatch = {
@@ -230,20 +261,20 @@ var stopwatch = {
 
 
 
-
+/*
 setInterval(function(){ 
 		$('.timer').html(t);
 		t--;
 
-		/* PSEUDOCODE
+		PSEUDOCODE
 		if t==0 {
 			increment to display next question		
 			reset timer
 		}
 
-		}*/
+		}
 
-	;}, 1000);
+	;}, 1000);*/
 
 
 
