@@ -45,7 +45,12 @@ var questions = [{
 
 }]
 
-var currentQuestion=0;
+var images = ["assets/images/giphy.gif", "assets/giphyPretty.gif", "assets/images/giphyJBR.gif", "assets/images/giphyTS.gif", "assets/images/giphyGC.gif", "assets/images/giphyKB.gif"];
+
+var count = 0;
+
+
+var currentQuestion = 0;
 var score= 0;
 var totQuestions = questions.length;
 
@@ -70,11 +75,15 @@ function loadQuestion (questionIndex) {
 	opt4.textContent = q.option4;
 
 };
-$("button").click(function(){
+$(".start").click(function(){
 	$(".gameTitle").hide();
 	$(".container").show();
+	$(".doOverDiv").hide();
+
 });
 $(".container").hide();
+$(".doOverDiv").hide();
+$("#result").hide();
 
 function loadNextQuestion () {
 
@@ -88,19 +97,28 @@ function loadNextQuestion () {
 
 	
 	var answer = ("selectedOption").value;
-	if(questions[currentQuestion].answer == answer){
+	if(questions.answer == answer){
 		score +=  10;
+		function displayImage (){
+    		$('#image-holder').html('<img src='+images[count]+ ' width="400px">');
+}
 	}
 	("selectedOption").checked = false;
 	currentQuestion++;
 	if(currentQuestion == totQuestions - 1){
 		nextButton.textContent = "finish";
+		$(".container").hide();
+		$("#result").show();
+
+
 
 	}
 	if (currentQuestion == totQuestions){
 		
 		resultCont.style.display ="";
-		resultCont.textContent= "your score" + score;
+		resultCont.textContent= "your score"+ " " + score;
+		
+
 		return;
 	}
 	loadQuestion(currentQuestion);
@@ -110,3 +128,55 @@ function loadNextQuestion () {
 
 loadQuestion(currentQuestion);
 
+
+
+
+   /*
+window.onload = function(){
+   $('#nextButton').on('click', stopwatch.start);
+ };   
+
+
+var stopwatch = {
+    time:30,
+    lap:1,
+    reset: function(){
+        stopwatch.time = 0;
+        stopwatch.lap = 1;
+        $('#display').html('00:30');
+        $('#laps').html('');
+    },
+    start: function(){
+        counter = setInterval(stopwatch.count, 1000);
+    },
+    stop: function(){
+        clearInterval(counter);
+    },
+    
+  
+    count: function(){
+        stopwatch.time--;
+        var converted = stopwatch.timeConverter(stopwatch.time);
+        $('#display').html(converted);
+    },
+    timeConverter: function(t){
+        var minutes = Math.floor(t/60);
+        var seconds = t - (minutes * 60);
+        if (seconds < 10){
+            seconds = "0" + seconds;
+        }
+
+       
+        if (minutes === 0){
+            minutes = "00";
+        } else if (minutes < 10){
+            minutes = "0" + minutes;
+        }
+         if (seconds <= 0){
+       clearInterval(counter);
+        }
+        return minutes + ":" + seconds;
+    }
+}
+
+*/
