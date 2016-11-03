@@ -9,13 +9,13 @@
 	<body>
 	<div class= "gameTitle"> Let's Get Mean
 		<br> 
-		<button class="gameTitle start"> Start</button>
+		<button class="gamestart start"> Start</button>
 	</div>
 
 <div id="quizContainter demo " class="container">
-	
-	<div class="gameTitle"> Mean Girls Trivia Game</div>
 	<div  class="timer" id="image-holder display"></div>
+	<div class="gameTitle"> Mean Girls Trivia Game</div>
+	
 	<div id="question" class="question">Who mane this?</div>
 	<label class="option"><input type="radio" name="option" value="1" /><span id="opt1">D</span></label>
 	<label class="option"><input type="radio" name="option" value="2" /><span id="opt2">A</span></label>
@@ -24,9 +24,23 @@
 	<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 	</div>
 	<div id="result" class="containter result" >
+		<div class="totalResults">
+		<div class="timeRemaining">Time Remaining: </div>
+		<br>
+		<p>All done, here's how you did</p><br>
+		<div class= "rightAnswers"> Correct Answer: </div>
+		<div class= "wrongAnswers"> Incorrect Answer: </div>
+		<div class= "unanswered"> Unanswered: </div>
+		</div>
+
+
+
+
+
+		
 		<button id="restartButton"  class="next-btn" onclick="loadNextQuestion();">Start over</button>
 	</div>
-	
+	<\
 
 
 	</div>

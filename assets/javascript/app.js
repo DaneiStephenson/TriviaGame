@@ -79,11 +79,13 @@ $(".start").click(function(){
 	$(".gameTitle").hide();
 	$(".container").show();
 	$(".doOverDiv").hide();
+	$(".totalResults").hide();
 
 });
 $(".container").hide();
 $(".doOverDiv").hide();
 $("#result").hide();
+$(".totalResults").hide();
 
 function loadNextQuestion () {
 
@@ -128,6 +130,8 @@ function timer() {
 		nextButton.textContent = "finish";
 		$(".container").hide();
 		$("#result").show();
+		$(".totalResults").show();
+		
 	}
 	if (currentQuestion == totQuestions){
 		
@@ -145,11 +149,12 @@ loadQuestion(currentQuestion);
 
 
 
-/*
+
 window.onload = function(){
    $('#nextButton').on('click', stopwatch.start);
  };   
 
+/*
 
 var stopwatch = {
     time:30,
@@ -193,10 +198,26 @@ var stopwatch = {
     }
 }
 
-
-
-
-
-
 */
+
+
+
+
+setInterval(function(){ 
+		$('.timer').html(t);
+		t--;
+
+		/* PSEUDOCODE
+		if t==0 {
+			increment to display next question		
+			reset timer
+		}
+
+		}*/
+
+	;}, 1000);
+
+
+
+
 

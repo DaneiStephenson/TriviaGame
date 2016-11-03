@@ -22,14 +22,77 @@
  	box-shadow: : 0 0 8px 3px #fff;
 
 }
+
+
 .gameTitle {
 	padding-top: 20px;
 	text-align: center;
 	font-size:36px;
 	
 	color:#000;
+	height: 330px;
+ 	width: 1000px;
+ 	position: absolute;
+ 	top:50%;
+ 	left:50%;
+ 	transform: translateX(-50%) translateY(-50%);
+ 	background: rgba(255, 255, 255, 0.5);
+ 	padding: 20px;
+ 	border: 1px solid #fff;
+ 	box-shadow: : 0 0 8px 3px #fff;
+
  }
 
+.gamestart{
+	border:none;
+ 	outline:none;
+ 	background:rgba(255, 25, 255, 0.5);
+ 	width:300px;
+ 	height: 100px;
+ 	border-radius: 20px;
+ 	cursor: :pointer;
+ 	font-size: 40px;
+ 	margin: 10px;
+ 	font-family:"Pacifico", cursive;
+ 	vertical-align: middle;
+ 	top:50%;
+ 	left:50%;
+
+
+}
+.timer {
+	font-size: 40px;
+	text-align: center;
+}
+
+#restartButton{
+	font-size: 40px;
+	text-align: center;
+   
+	width:300px;
+ 	height: 100px;
+ 	border-radius: 20px;
+ 	cursor: :pointer;
+ 	position: absolute;
+ 	top:50%;
+ 	left:50%;
+
+ 	vertical-align: :middle;
+}
+
+#result{
+
+height: 330px;
+ 	width: 1000px;
+ 	position: absolute;
+ 	top:50%;
+ 	left:50%;
+ 	transform: translateX(-50%) translateY(-50%);
+ 	background: rgba(255, 255, 255, 0.5);
+ 	padding: 20px;
+ 	border: 1px solid #fff;
+ 	box-shadow: : 0 0 8px 3px #fff;
+}
  .question {
  	padding: 20px;
  	font-size:22px;
@@ -72,10 +135,15 @@
  	color: #f6f6f6;
  }
 
-.result{
+#restartButton{
 	height:100px;
 	text-align: center;
-	font-size:75px;
+	font-size:40px;
+	top:50%;
+ 	left:35%;
+ 	font-family:"Pacifico", cursive;
+ 	vertical-align: middle;
+
 }
 
 .option input:checked .option{
