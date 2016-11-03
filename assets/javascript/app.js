@@ -64,8 +64,6 @@ var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
 
 
-
-
 function loadQuestion (questionIndex) {
 	var q = questions[questionIndex];
 	questionEl.textContent = (questionIndex +1) + '.' +q.question;
@@ -75,6 +73,8 @@ function loadQuestion (questionIndex) {
 	opt4.textContent = q.option4;
 
 };
+
+
 $(".start").click(function(){
 	$(".gameTitle").hide();
 	$(".container").show();
@@ -87,21 +87,40 @@ $("#result").hide();
 
 function loadNextQuestion () {
 
-
-
-
-
 	var selectedOption = document.querySelector['input[type=radio]: checked'];
-	
+
+function stoptimer() {
+    clearInterval(timer);
+}
+// Function to start timer
+function starttimer() {
+    timer = setInterval(timer, 1000);
+}
+// Variable for timer
+t = 10;
+$('.timer').html(t); // Places timer on page
+function timer() {
+    t--
+    // console.log(t); debugging
+    // Updates timer
+    $('.timer').html(t);
+    // Reset and updates question when timer hits 0
+    if (t == 0) {
+        console.log("unanswered");
+        t=10;
+        $('.timer').html(t);
+        x++ // increment to display next question
+        questionupdater(); // runs function to display next question
+    }
+};
 
 
-	
+
 	var answer = ("selectedOption").value;
 	if(questions.answer == answer){
 		score +=  10;
-		function displayImage (){
-    		$('#image-holder').html('<img src='+images[count]+ ' width="400px">');
-}
+		
+
 	}
 	("selectedOption").checked = false;
 	currentQuestion++;
@@ -109,15 +128,11 @@ function loadNextQuestion () {
 		nextButton.textContent = "finish";
 		$(".container").hide();
 		$("#result").show();
-
-
-
 	}
 	if (currentQuestion == totQuestions){
 		
 		resultCont.style.display ="";
 		resultCont.textContent= "your score"+ " " + score;
-		
 
 		return;
 	}
@@ -130,8 +145,7 @@ loadQuestion(currentQuestion);
 
 
 
-
-   /*
+/*
 window.onload = function(){
    $('#nextButton').on('click', stopwatch.start);
  };   
@@ -179,4 +193,10 @@ var stopwatch = {
     }
 }
 
+
+
+
+
+
 */
+
