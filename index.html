@@ -7,17 +7,26 @@
 	</head>
 
 	<body>
-<div id="quizContainter" class="container">
+	<div class= "gameTitle"> Let's Get Mean
+		<br> 
+		<button class="gameTitle start"> Start</button>
+	</div>
+
+<div id="quizContainter demo " class="container">
+	
 	<div class="gameTitle"> Mean Girls Trivia Game</div>
+	<
 	<div id="question" class="question">Who mane this?</div>
-	<label class="option"><input type="radio" name="option" value="1" /><span is="opt1">D</span></label>
-	<label class="option"><input type="radio" name="option" value="2" /><span is="opt2">A</span></label>
-	<label class="option"><input type="radio" name="option" value="3" /><span is="opt3">N</span></label>
-	<label class="option"><input type="radio" name="option" value="4" /><span is="opt2">E</span></label>
+	<label class="option"><input type="radio" name="option" value="1" /><span id="opt1">D</span></label>
+	<label class="option"><input type="radio" name="option" value="2" /><span id="opt2">A</span></label>
+	<label class="option"><input type="radio" name="option" value="3" /><span id="opt3">N</span></label>
+	<label class="option"><input type="radio" name="option" value="4" /><span id="opt4" ="opt2">E</span></label>
 	<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 	</div>
-	<div id="result" class="containter result" style="display:none";>
+	<div id="result" class="containter result" >
 	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+
 	<script src="assets/javascript/app.js"></script>
 	</body>
 
