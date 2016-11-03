@@ -46,7 +46,9 @@ var questions = [{
 }]
 
 var images = ["assets/images/giphy.gif", "assets/giphyPretty.gif", "assets/images/giphyJBR.gif", "assets/images/giphyTS.gif", "assets/images/giphyGC.gif", "assets/images/giphyKB.gif"];
-
+var rightAnswers;
+var wrongAnswers;
+ var unanswered;
 var count = 0;
 var timer;
 var stopwatch;
@@ -120,13 +122,22 @@ $(".gameTitle").hide();
 
 
 function loadQuestion (questionIndex) {
-	var q = questions[questionIndex];
-	questionEl.textContent = (questionIndex +1) + '.' +q.question;
-	opt1.textContent = q.option1;
-	opt2.textContent = q.option2;
-	opt3.textContent = q.option3;
-	opt4.textContent = q.option4;
 
+	if (questionIndex == 6){
+		startover();
+
+	}
+
+	else {
+		var q = questions[questionIndex];
+		questionEl.textContent = (questionIndex +1) + '.' +q.question;
+		opt1.textContent = q.option1;
+		opt2.textContent = q.option2;
+		opt3.textContent = q.option3;
+		opt4.textContent = q.option4;
+	 
+	}
+	
 };
 
 
