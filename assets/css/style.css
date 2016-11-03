@@ -83,5 +83,7 @@
 	background: #08038C;
 	color:#000;
 }
-
+#restartButton{
+	visibility: hidden;
+}
 }
