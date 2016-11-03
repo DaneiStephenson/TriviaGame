@@ -49,7 +49,7 @@ var images = ["assets/images/giphy.gif", "assets/giphyPretty.gif", "assets/image
 
 var count = 0;
 
-
+var stopwatch;
 var currentQuestion = 0;
 var score= 0;
 var totQuestions = questions.length;
@@ -62,6 +62,33 @@ var opt3 = document.getElementById('opt3');
 var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
+
+
+function startover (){
+
+
+
+$(".finish").click(function(){
+	$(".gameTitle").show();
+	$(".container").hide();
+	$(".doOverDiv").hide();
+	$(".totalResults").show();
+$(".container-result").hide();
+});
+
+$(".gameTitle").hide();
+	$(".container").hide();
+	$(".doOverDiv").hide();
+	$(".totalResults").hide();
+
+
+
+
+
+
+}
+
+
 
 
 function loadQuestion (questionIndex) {
@@ -87,6 +114,10 @@ $(".doOverDiv").hide();
 $("#result").hide();
 $(".totalResults").hide();
 
+
+
+
+
 function loadNextQuestion () {
 
 	var selectedOption = document.querySelector['input[type=radio]: checked'];
@@ -107,7 +138,7 @@ function timer() {
     // Updates timer
     $('.timer').html(t);
     // Reset and updates question when timer hits 0
-    if (t == 0) {
+    if (t === 0) {
         console.log("unanswered");
         t=10;
         $('.timer').html(t);
@@ -127,17 +158,14 @@ function timer() {
 	("selectedOption").checked = false;
 	currentQuestion++;
 	if(currentQuestion == totQuestions - 1){
-		nextButton.textContent = "finish";
+		nextButton.textContent = "Finish";
 		$(".container").hide();
 		$("#result").show();
 		$(".totalResults").show();
+startover();
 		
-	}
-	if (currentQuestion == totQuestions){
-		
-		resultCont.style.display ="";
-		resultCont.textContent= "your score"+ " " + score;
-
+	
+	
 		return;
 	}
 	loadQuestion(currentQuestion);

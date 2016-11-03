@@ -23,14 +23,14 @@
 	<label class="option"><input type="radio" name="option" value="4" /><span id="opt4" ="opt2">E</span></label>
 	<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 	</div>
-	<div id="result" class="containter result" >
+	<div id="result" class="containter container-result" >
 		<div class="totalResults">
 		<div class="timeRemaining">Time Remaining: </div>
 		<br>
 		<p>All done, here's how you did</p><br>
-		<div class= "rightAnswers"> Correct Answer: </div>
-		<div class= "wrongAnswers"> Incorrect Answer: </div>
-		<div class= "unanswered"> Unanswered: </div>
+		<div id= "rightAnswers"> Correct Answer: </div>
+		<div id= "wrongAnswers"> Incorrect Answer: </div>
+		<div id= "unanswered"> Unanswered: </div>
 		</div>
 
 
@@ -38,10 +38,9 @@
 
 
 		
-		<button id="restartButton"  class="next-btn" onclick="loadNextQuestion();">Start over</button>
+		<button id="restartButton"  class="next-btn finish" onclick="startover();">Start over</button>
 	</div>
-	<\
-
+	
 
 	</div>
 	</div>
