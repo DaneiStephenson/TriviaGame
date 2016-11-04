@@ -44,6 +44,7 @@ var questions = [{
 	"answer": "Kalteen Bars"
 
 }]
+// Love that you did this in this format using an array of object
 
 var images = ["assets/images/giphy.gif", "assets/giphyPretty.gif", "assets/images/giphyJBR.gif", "assets/images/giphyTS.gif", "assets/images/giphyGC.gif", "assets/images/giphyKB.gif"];
 var rightAnswers = 0;
@@ -55,13 +56,15 @@ var stopwatch;
 var currentQuestion = 0;
 var score= 0;
 var totQuestions = questions.length;
+var index = 0;
+
 
 var container = document.getElementById("quizContainer");
 var questionEl= document.getElementById('question');
-var opt1 = document.getElementById('opt1');
-var opt2 = document.getElementById('opt2');
-var opt3 = document.getElementById('opt3');
-var opt4 = document.getElementById('opt4');
+var opt1 = $('#opt1');
+var opt2 = $('#opt2');
+var opt3 = $('#opt3');
+var opt4 = $('#opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
 
@@ -110,13 +113,11 @@ $(".gameTitle").hide();
 	$(".container").hide();
 	$(".doOverDiv").hide();
 	$(".totalResults").show();
-
-
 }
-var index = 0;
+
 function loadQuestion (questionIndex) {
 
-	if (questionIndex == 6){
+	if (questionIndex == 5){
 		$("#rightAnswers").append(rightAnswers);
 		$("#wrongAnswers").append(wrongAnswers);
 		$("#unanswered").append(unanswered);
@@ -127,20 +128,27 @@ function loadQuestion (questionIndex) {
 	}
 
 	else {
-		index++
 		var q = questions[questionIndex];
-		questionEl.textContent = (questionIndex +1) + '.' +q.question;
-		opt1.textContent = q.option1;
-		opt2.textContent = q.option2;
-		opt3.textContent = q.option3;
-	    opt4.textContent = q.option4;
+		questionEl.textContent = (questionIndex+1) + '.' +q.question;
+		opt1.text(q.option1);
+		opt1.data("answer", q.option1);
+
+		opt2.text(q.option2);
+		opt2.data("answer", q.option2);
+
+		opt3.text(q.option3);
+		opt3.data("answer", q.option3);
+
+	    opt4.text(q.option4);
+	    opt4.data("answer", q.option4);
 	 
 	}
 	
 };
 
 $(".option").click(function(){
-	 if (this == questions[index].answer){
+	console.log($(this).children().data("answer"), " === ",  questions[index].answer)
+	 if ($(this).children().data("answer") == questions[index].answer){
 	 	rightAnswers++;
 	 	console.log(rightAnswers);
 	 	loadNextQuestion();
@@ -154,6 +162,7 @@ $(".option").click(function(){
 		t = 10;
 		$('.timer').html(t);
 	 }
+	 index++
 })
 
 $(".start").click(function(){
@@ -195,42 +204,53 @@ function timer() {
 
 function loadNextQuestion () {
 
-	var selectedOption = document.querySelector['input[type=radio]: checked'];
 /* for bonus
 function stoptimer() {
     clearInterval(timer);
 }
 */
 
-
-
-
 	var answer = ("selectedOption").value;
 	if(questions.answer == answer){
 		score +=  1;
-
-		
-
 	}
-	("selectedOption").checked = false;
 	currentQuestion++;
-	if(currentQuestion == totQuestions - 1){
+	if(index == (totQuestions - 1)){
 		nextButton.textContent = "Finish";
 		$(".container").hide();
 		$("#result").show();
 		$(".totalResults").show();
-startover();
+		startover();
+		clearInterval(timer)
 		
-	
+	// Here you have to clear your timer 
+	// otherwise you will reset the game 
+	// and have to wait 20 seconds for the 
+	// answer to clean and show up
+	// You also have to check against your variable index
+	// because it holds the true value of which place you current question is at.
 	
 		return;
+		// you dont have to return; since it doesnt return anything.
 	}
-	loadQuestion(currentQuestion);
+	loadQuestion(currentQuestion); // it is fine to load next question
+								   // but i would only do this if the 
+								   // question is not the last. otherwise 
+								   // the question will always load even 
+								   // if it's not the last
 
 }
 $("#nextButton").hide();
 
 loadQuestion(currentQuestion);
+// You are once again calling 
+// loadQuestion here which at 
+// this point maybe unecessary
+
+
+// Make sure that my indexes are not off by one
+// The last question doesnt show because i cant count..!!
+
 
 
 
